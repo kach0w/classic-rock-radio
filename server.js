@@ -6,7 +6,6 @@ const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/users/", require("./routes/usersRoute"));
-app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 function getState(zipString) {
 
@@ -266,8 +265,10 @@ app.post('/', async(req, res, next) => {
     
  });
 
- app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "build", "index.html")); });
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 app.listen(3001, function() {
     console.log("Running on port 3001")
