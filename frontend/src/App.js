@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <form action="http://localhost:3001" method="post">
+      <form action="https://classic-rock.onrender.com" method="post">
           <input type="text" name="name"/>
           <input type="submit" />
       </form>
