@@ -267,8 +267,8 @@ app.post('/', async(req, res, next) => {
  });
 
  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
-  });
+    res.sendFile(__dirname + '/index.html');
+ });
 
 app.listen(3001, function() {
     console.log("Running on port 3001")
